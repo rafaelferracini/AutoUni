@@ -12,15 +12,15 @@ if not ctypes.windll.shell32.IsUserAnAdmin():
 else:
     print("Permissão")
 
+courses = []
+
+for dir in os.listdir("D:/University/semester-1"): # Automatizar processo de identificação de semestre
+    courses.append(dir)
+
 while True:
-    courses = []
-
-    for dir in os.listdir("D:/University/semester-1"): # Automatizar processo de identificação de semestre
-        courses.append(dir)
-
     print("-----------------------------")
     for course in courses:
-        print(f"[{courses.index(course)}] {course}")
+        print(f"[{courses.index(course)}] {course}") # Automatizar criação de pastas para o curso a partir da matricula 
     print("-----------------------------")
     current_course = int(input("Selectione o curso atual: "))  # Automatizar processo de curso a partir de integração com Google Calendar
 
