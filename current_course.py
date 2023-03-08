@@ -12,17 +12,21 @@ if not ctypes.windll.shell32.IsUserAnAdmin():
 else:
     print("Permissão")
 
-courses = []
+while True:
+    courses = []
 
-for dir in os.listdir("D:/University/semester-1"): # Automatizar processo de identificação de semestre
-    courses.append(dir)
+    for dir in os.listdir("D:/University/semester-1"): # Automatizar processo de identificação de semestre
+        courses.append(dir)
 
-print("-----------------------------")
-for course in courses:
-    print(f"[{courses.index(course)}] {course}")
-print("-----------------------------")
-current_course = int(input("Selectione o curso atual: "))  # Automatizar processo de curso a partir de integração com Google Calendar
+    print("-----------------------------")
+    for course in courses:
+        print(f"[{courses.index(course)}] {course}")
+    print("-----------------------------")
+    current_course = int(input("Selectione o curso atual: "))  # Automatizar processo de curso a partir de integração com Google Calendar
 
-os.symlink(f"D:/University/semester-1/{courses[current_course]}", "D:/University/current_course")
+    if os.path.exists("D:/University/current_course"):
+        os.unlink("D:/University/current_course")
 
+    os.symlink(f"D:/University/semester-1/{courses[current_course]}", "D:/University/current_course")
 
+    os.system("cls")
