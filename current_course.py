@@ -6,11 +6,11 @@ import os
 import ctypes
 
 if not ctypes.windll.shell32.IsUserAnAdmin():
-    print("Sem permissão de administrador.")
+    print("No admin")
     import sys
     ctypes.windll.shell32.ShellExecuteW(None, 'runas', sys.executable, ' '.join(sys.argv), None, None)
 else:
-    print("Permissão")
+    print("admin")
 
 courses = []
 
