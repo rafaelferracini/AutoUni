@@ -14,7 +14,7 @@ else:
 
 courses = []
 
-for dir in os.listdir("D:/University/semester-1"): # Automatizar processo de identificação de semestre
+for dir in os.listdir("D:/University/2023.1"): # Automatizar processo de identificação de semestre
     courses.append(dir)
 
 while True:
@@ -24,9 +24,9 @@ while True:
     print("-----------------------------")
     current_course = int(input("Selectione o curso atual: "))  # Automatizar processo de curso a partir de integração com Google Calendar
 
-    if os.path.exists("D:/University/current_course"):
-        os.unlink("D:/University/current_course")
+    if os.path.exists("C:/Users/rafae/current_course"):
+        os.unlink("C:/Users/rafae/current_course")
 
-    os.symlink(f"D:/University/semester-1/{courses[current_course]}", "D:/University/current_course")
+    os.symlink(f"D:/University/2023.1/{courses[current_course]}", "C:/Users/rafae/current_course")
 
     os.system("cls")
