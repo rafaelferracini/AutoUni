@@ -23,7 +23,9 @@ while True:
         print(f"[{courses.index(course)}] {course}") # Automatizar criação de pastas para o curso a partir da matricula 
     print("-----------------------------")
     current_course = int(input("Selectione o curso atual: "))  # Automatizar processo de curso a partir de integração com Google Calendar
-
+    if current_course == 9:
+        exit()
+    
     if os.path.exists("C:/Users/rafae/current_course"):
         os.unlink("C:/Users/rafae/current_course")
 
